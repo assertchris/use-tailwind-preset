@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const opn = require("opn")
 const { exec } = require("child_process")
 
