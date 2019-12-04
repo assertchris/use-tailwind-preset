@@ -1,0 +1,12 @@
+{
+    "name": "use-tailwind-preset",
+    "version": "1.0.0",
+    "description": "Quickly use Tailwind in new Laravel projects",
+    "main": "index.js",
+    "bin": "index.js",
+    "author": "Christopher Pitt <cgpitt@gmail.com>",
+    "license": "MIT",
+    "dependencies": {
+        "opn": "^6.0.0"
+    }
+}
