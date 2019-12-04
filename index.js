@@ -5,7 +5,7 @@ const { exec } = require("child_process")
 
 console.log("Installing the Tailwind preset...")
 
-exec("composer require laravel-frontend-presets/tailwindcss --dev", (err, stdout, stderr) => {
+exec("composer require laravel-frontend-presets/tailwindcss --dev -n", (err, stdout, stderr) => {
     if (err) {
         console.log("Could not install the preset")
         return
@@ -25,7 +25,7 @@ exec("composer require laravel-frontend-presets/tailwindcss --dev", (err, stdout
                 return
             }
 
-            exec("composer remove laravel-frontend-presets/tailwindcss", (err, stdout, stderr) => {
+            exec("composer remove laravel-frontend-presets/tailwindcss --dev -n", (err, stdout, stderr) => {
                 if (err) {
                     console.log("Could not uninstall the preset")
                     return
