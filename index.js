@@ -3,6 +3,8 @@
 const opn = require("opn")
 const { exec } = require("child_process")
 
+console.log("Installing the Tailwind preset...")
+
 exec("composer require laravel-frontend-presets/tailwindcss --dev", (err, stdout, stderr) => {
     if (err) {
         console.log("Could not install the preset")
@@ -14,6 +16,8 @@ exec("composer require laravel-frontend-presets/tailwindcss --dev", (err, stdout
             console.log("Could not use the preset")
             return
         }
+
+        console.log("Installing NPM dependencies...")
 
         exec("npm install && npm run dev", (err, stdout, stderr) => {
             if (err) {
