@@ -1,6 +1,6 @@
 {
     "name": "use-tailwind-preset",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "Quickly use Tailwind in new Laravel projects",
     "main": "build/index.js",
     "bin": "build/index.js",
