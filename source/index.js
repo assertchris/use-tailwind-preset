@@ -5,11 +5,7 @@ import React, { Component } from "react"
 import { render, Box, Color } from "ink"
 import SelectInput from "ink-select-input"
 
-const DEBUG = process.env.DEBUG
-
-const WAIT = async () => new Promise(resolve => setTimeout(resolve, 1000))
-
-const promiseFromExec = async command =>
+const run = async command =>
     new Promise(function(resolve, reject) {
         exec(command, function(err, stdout, stderr) {
             if (err) {
@@ -22,16 +18,13 @@ const promiseFromExec = async command =>
 
 const commands = {
     "npm": {
-        "install": async () => (DEBUG ? WAIT() : promiseFromExec("npm install")),
-        "build": async () => (DEBUG ? WAIT() : promiseFromExec("npm run dev")),
+        "install": async () => run("npm install"),
+        "build": async () => run("npm run dev"),
     },
     "preset": {
-        "install": async () =>
-            DEBUG ? WAIT() : promiseFromExec("composer require laravel-frontend-presets/tailwindcss --dev -n"),
-        "use": async (withAuth = false) =>
-            DEBUG ? WAIT() : promiseFromExec(`php artisan preset ${withAuth ? "tailwindcss-auth" : "tailwindcss"}`),
-        "remove": async () =>
-            DEBUG ? WAIT() : promiseFromExec("composer remove laravel-frontend-presets/tailwindcss --dev -n"),
+        "install": async () => run("composer require laravel-frontend-presets/tailwindcss --dev -n"),
+        "use": async (withAuth = false) => run(`php artisan preset ${withAuth ? "tailwindcss-auth" : "tailwindcss"}`),
+        "remove": async () => run("composer remove laravel-frontend-presets/tailwindcss --dev -n"),
     },
 }
 
