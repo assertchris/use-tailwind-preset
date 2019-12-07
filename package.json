@@ -1,12 +1,45 @@
 {
     "name": "use-tailwind-preset",
-    "version": "1.0.3",
+    "version": "2.0.0",
     "description": "Quickly use Tailwind in new Laravel projects",
-    "main": "index.js",
-    "bin": "index.js",
+    "main": "build/index.js",
+    "bin": "build/index.js",
     "author": "Christopher Pitt <cgpitt@gmail.com>",
     "license": "MIT",
+    "scripts": {
+        "build": "babel source --out-dir=build",
+        "prepare": "npm run build"
+    },
+    "files": [
+        "build"
+    ],
     "dependencies": {
-        "opn": "^6.0.0"
+        "ink": "^2.6.0",
+        "ink-select-input": "^3.1.2",
+        "react": "^16.12.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.7.5",
+        "@babel/core": "^7.7.5",
+        "@babel/plugin-proposal-class-properties": "^7.7.4",
+        "@babel/preset-env": "^7.7.5",
+        "@babel/preset-react": "^7.7.4",
+        "@types/react": "^16.9.15"
+    },
+    "babel": {
+        "plugins": [
+            "@babel/plugin-proposal-class-properties"
+        ],
+        "presets": [
+            "@babel/preset-react",
+            [
+                "@babel/preset-env",
+                {
+                    "targets": {
+                        "esmodules": true
+                    }
+                }
+            ]
+        ]
     }
 }
